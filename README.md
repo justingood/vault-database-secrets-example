@@ -18,8 +18,8 @@ docker-compose up --build
 
 3. It then runs a loop that tests the DB connection and renews the secret lease every 30 seconds.
 
-4. This continues until the secret reaches the `max_ttl`, which is set to 4 minutes. At this point, Vault revokes the secret, and the connection will fail. We will see a warning when we attempt to renew a leas that would go beyond the `max_ttl`.
+4. This continues until the secret reaches the `max_ttl`, which is set to 4 minutes. At this point, Vault revokes the secret, and the connection will fail. A warning will be returned when attempting to renew a leas that would go beyond the `max_ttl`.
 
 ## Other useful info
-* You can connect to the Vault UI at http://localhost:8200
+* You can connect to the Vault UI at http://localhost:8200 (if the Docker networking Gods allow)
   * You can login with the root token `abcd`
