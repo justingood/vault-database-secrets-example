@@ -15,10 +15,18 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=password
-  test:
+  configure:
     build:
       dockerfile: Dockerfile
-    command: /usr/bin/test.sh
+    command: /usr/bin/configure.sh
+    depends_on:
+      - vault
+      - postgres
+    restart: "no"
+  service:
+    build:
+      dockerfile: Dockerfile
+    command: /usr/bin/service.sh
     depends_on:
       - vault
       - postgres

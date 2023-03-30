@@ -7,4 +7,5 @@ RUN wget -q https://releases.hashicorp.com/vault/1.12.3/vault_1.12.3_linux_amd64
     chmod +x vault && \
     mv vault /usr/bin/
 
-COPY test.sh /usr/bin/test.sh
+COPY configure.sh /usr/bin/configure.sh
+COPY service.sh /usr/bin/service.sh
